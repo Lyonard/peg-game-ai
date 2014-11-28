@@ -43,10 +43,14 @@ a:hover{
 #board_controls div{
     color: #52220d;
     width: 133px;
+    min-height: 30px;
     padding: 5px;
     text-align: center;
     font-size: 1.1em;
     cursor: pointer;
+}
+#board_controls div.clear{
+    min-height: 0;
 }
 
 #board_controls div:hover{

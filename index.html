@@ -9,12 +9,14 @@
 <link rel="stylesheet" href="style.css"/>
 
 <div id="header">
-    <h1 class="title">Peg game - English version</h1>
+    <h1 class="title">Peg solitaire - English version</h1>
 </div>
 <div id="wrapper">
-    <p>Peg solitaire is a board game for one player involving movement of pegs on a board with holes. <br/>
+    <p title="From Wikipedia" alt="From Wikipedia">
+        Peg solitaire is a board game for one player involving movement of pegs on a board with holes. <br/>
         Some sets use marbles in a board with indentations. The game is known simply as <b>Solitaire</b> in the United
-        Kingdom.</p>
+        Kingdom.
+    </p>
 
     <a id="showrules" title="Show rules" alt="Show rules" href="#">Show rules</a>
     <div id="rules" class="hidden" title="From Wikipedia" alt="From Wikipedia">
@@ -25,6 +27,7 @@
             remove the jumped peg.
         </p>
     </div>
+    
     <div id="board_container">
         <div class="row" id="row0">
             <div class="cell wall sx"></div>
@@ -110,8 +113,11 @@
         <div class="button sx" id="stepforward" role="button" title="Step 1 move forward" alt="Step 1 move forward">
             &#8594;
         </div>
-        <span class="clear"></span>
+        <div class="clear"></div>
     </div>
+    Check out the code <a href="https://github.com/Lyonard/peg-game-ai" alt="Git repository for peg solitaire" title="Git repository for peg solitaire">
+        here! 
+    </a>(Github repo)
 </div>
 
 <script>

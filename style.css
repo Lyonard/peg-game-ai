@@ -1,0 +1,135 @@
+body {
+    background: #eee;
+    font-family: 'Roboto slab', serif;
+    color: #222;
+}
+
+a,
+a:hover,
+a:active,
+a:visited{
+    font-weight: bolder;
+    color: #222;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#board_container {
+    width: 420px;
+
+    background: #7b3314;
+    margin: 0 auto;
+    padding: 5px;
+    position: relative;
+
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    box-shadow: 0 0 10px #52220d inset;
+    -mozbox-shadow: 0 0 10px #52220d inset;
+    -webkit-box-shadow: 0 0 10px #52220d inset;
+}
+
+#board_controls {
+    width: 430px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+#board_controls div{
+    color: #52220d;
+    width: 133px;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+#board_controls div:hover{
+    font-size: 1.3em;
+    background: rgba( 0, 0, 0, 0.1);
+}
+
+#header,
+#board_controls {
+    text-align: center;
+}
+
+#rules {
+    padding: 0 0 10px 10px;
+    font-size: .9em;
+    height: 125px;
+
+    overflow: hidden;
+
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+#wrapper {
+    width: 53%;
+    margin: 0 auto;
+}
+
+.cell {
+    min-width: 50px;
+    min-height: 50px;
+    margin: 0 5px;
+
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.piece {
+    /*background: #7b3314;*/
+    background: #EEA36D;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    -webkit-box-shadow: 0 -5px 33px #382E1C inset;
+    -moz-box-shadow: 0 -5px 33px #382E1C inset;
+    -webkit-box-shadow: 0 -5px 33px #382E1C inset;
+}
+
+.row {
+    padding: 5px 0;
+}
+
+.empty {
+    background: #52220d;
+    box-shadow: 0 0 30px #382E1C inset;
+    -moz-box-shadow: 0 0 30px #382E1C inset;
+    -webkit-box-shadow: 0 0 30px #382E1C inset;
+}
+
+.sx {
+    float: left;
+}
+
+.dx {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.hidden {
+    height: 0 !important;
+
+}
+
+#rules.visible {
+    height: 125px;
+}
+
+#pause.hidden,
+#play.hidden{
+    display:none;
+}

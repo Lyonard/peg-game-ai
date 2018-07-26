@@ -124,12 +124,14 @@ Node.prototype.heuristic = function () {
         }
     }
 
-    return ( 1.38 * fronteerSize * ( 1 + 0.8 * nrIsolatedNodes)) * Math.pow(nrOfNodes, 0.1);
+//    return ( 1.38 * fronteerSize * ( 1 + 0.094 * nrIsolatedNodes)) * Math.pow(nrOfNodes, 0.1); //308
+    var rand1 =  0.2503769897 + (Math.random()  / 8);
+    var rand2 =  Math.random() / 8; /*rand1 -  0.2503769897 ; */
+    return ( (1 + rand1) * fronteerSize * ( 1 +  rand2 * nrIsolatedNodes)) * Math.pow(nrOfNodes, 0.1);
 };
 
 // g(x) + h(x)
 Node.prototype.f = function () {
-
     return this.g + this.h;
 };
 

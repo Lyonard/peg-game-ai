@@ -7,13 +7,13 @@ body {
 a,
 a:hover,
 a:active,
-a:visited{
+a:visited {
     font-weight: bolder;
     color: #222;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
@@ -34,32 +34,20 @@ a:hover{
     -webkit-box-shadow: 0 0 10px #52220d inset;
 }
 
-#board_controls {
-    width: 430px;
+#board_controls,
+#game_controls {
+    width: 500px;
     margin: 0 auto;
     padding: 10px 20px;
 }
 
-#board_controls div{
-    color: #52220d;
-    width: 133px;
-    min-height: 35px;
-    padding: 5px;
-    text-align: center;
-    font-size: 1.1em;
-    cursor: pointer;
-}
-#board_controls div.clear{
+#board_controls div.clear {
     min-height: 0;
 }
 
-#board_controls div:hover{
-    font-size: 1.3em;
-    background: rgba( 0, 0, 0, 0.1);
-}
-
 #header,
-#board_controls {
+#board_controls,
+#game_controls {
     text-align: center;
 }
 
@@ -75,9 +63,22 @@ a:hover{
     transition: height 0.5s;
 }
 
+#rules.visible {
+    height: 125px;
+}
+
+#pause.height_0,
+#play.height_0 {
+    display: none;
+}
+
 #wrapper {
     width: 53%;
     margin: 0 auto;
+}
+
+.row {
+    padding: 5px 0;
 }
 
 .cell {
@@ -101,8 +102,8 @@ a:hover{
     -webkit-box-shadow: 0 -5px 33px #382E1C inset;
 }
 
-.row {
-    padding: 5px 0;
+.cell.piece.selected {
+    border: 2px solid red;
 }
 
 .empty {
@@ -110,6 +111,32 @@ a:hover{
     box-shadow: 0 0 30px #382E1C inset;
     -moz-box-shadow: 0 0 30px #382E1C inset;
     -webkit-box-shadow: 0 0 30px #382E1C inset;
+}
+
+.button {
+    display: inline-block;
+    width: 133px;
+    padding: 5px;
+
+    color: #52220d;
+    text-align: center;
+    font-size: 1.1em;
+    cursor: pointer;
+
+}
+
+.button.disabled {
+    color: #666666;
+    cursor: auto;
+}
+
+.button:not(.disabled):hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#board_controls div,
+#game_controls div {
+
 }
 
 .sx {
@@ -124,16 +151,10 @@ a:hover{
     clear: both;
 }
 
-.hidden {
+.height_0 {
     height: 0 !important;
-
 }
 
-#rules.visible {
-    height: 125px;
-}
-
-#pause.hidden,
-#play.hidden{
-    display:none;
+.hidden {
+    display: none;
 }

@@ -10,11 +10,6 @@
   gtag('config', 'UA-102516489-3');
 </script>
 
-<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="thegame.js" type="text/javascript"></script>
-<script src="js/ai.js" type="text/javascript"></script>
-<script src="js/gameui.js" type="text/javascript"></script>
-
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="style.css"/>
 
@@ -29,7 +24,7 @@
     </p>
 
     <a id="showrules" title="Show rules" alt="Show rules" href="#">Show rules</a>
-    <div id="rules" class="hidden" title="From Wikipedia" alt="From Wikipedia">
+    <div id="rules" class="height_0" title="From Wikipedia" alt="From Wikipedia">
         <p>The standard game fills the entire board with pegs except for the central hole.<br/>
             The objective is, making valid moves, to empty the entire board except for a solitary peg in the central
             hole.<br/>
@@ -40,87 +35,98 @@
     
     <div id="board_container">
         <div class="row" id="row0">
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
+            <div id="empty00" class="cell wall sx"></div>
+            <div id="empty01" class="cell wall sx"></div>
+            <div id="empty02" class="cell empty sx"></div>
+            <div id="empty03" class="cell empty sx"></div>
+            <div id="empty04" class="cell empty sx"></div>
+            <div id="empty05" class="cell wall sx"></div>
+            <div id="empty06" class="cell wall sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row1">
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
+            <div id="empty10" class="cell wall sx"></div>
+            <div id="empty11" class="cell wall sx"></div>
+            <div id="empty12" class="cell empty sx"></div>
+            <div id="empty13" class="cell empty sx"></div>
+            <div id="empty14" class="cell empty sx"></div>
+            <div id="empty15" class="cell wall sx"></div>
+            <div id="empty16" class="cell wall sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row2">
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
+            <div id="empty20" class="cell empty sx"></div>
+            <div id="empty21" class="cell empty sx"></div>
+            <div id="empty22" class="cell empty sx"></div>
+            <div id="empty23" class="cell empty sx"></div>
+            <div id="empty24" class="cell empty sx"></div>
+            <div id="empty25" class="cell empty sx"></div>
+            <div id="empty26" class="cell empty sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row3">
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
+            <div id="empty30" class="cell empty sx"></div>
+            <div id="empty31" class="cell empty sx"></div>
+            <div id="empty32" class="cell empty sx"></div>
+            <div id="empty33" class="cell empty sx"></div>
+            <div id="empty34" class="cell empty sx"></div>
+            <div id="empty35" class="cell empty sx"></div>
+            <div id="empty36" class="cell empty sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row4">
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
+            <div id="empty40" class="cell empty sx"></div>
+            <div id="empty41" class="cell empty sx"></div>
+            <div id="empty42" class="cell empty sx"></div>
+            <div id="empty43" class="cell empty sx"></div>
+            <div id="empty44" class="cell empty sx"></div>
+            <div id="empty45" class="cell empty sx"></div>
+            <div id="empty46" class="cell empty sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row5">
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
+            <div id="empty50" class="cell wall sx"></div>
+            <div id="empty51" class="cell wall sx"></div>
+            <div id="empty52" class="cell empty sx"></div>
+            <div id="empty53" class="cell empty sx"></div>
+            <div id="empty54" class="cell empty sx"></div>
+            <div id="empty55" class="cell wall sx"></div>
+            <div id="empty56" class="cell wall sx"></div>
             <div class="clear"></div>
         </div>
         <div class="row" id="row6">
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell empty sx"></div>
-            <div class="cell wall sx"></div>
-            <div class="cell wall sx"></div>
+            <div id="empty60" class="cell wall sx"></div>
+            <div id="empty61" class="cell wall sx"></div>
+            <div id="empty62" class="cell empty sx"></div>
+            <div id="empty63" class="cell empty sx"></div>
+            <div id="empty64" class="cell empty sx"></div>
+            <div id="empty65" class="cell wall sx"></div>
+            <div id="empty66" class="cell wall sx"></div>
             <div class="clear"></div>
         </div>
     </div>
-    <div id="board_controls">
-        <div class="button sx" id="stepbackward" role="button" title="Step 1 move back" alt="Step 1 move back">
+    <div id="game_controls">
+        <div class="button" id="ai_play" role="button" title="Step 1 move back" alt="Step 1 move back">
+            Solve with AI
+        </div>
+        <div class="button" id="reset" role="button" title="Step 1 move back" alt="Step 1 move back">
+            RESET
+        </div>
+        <div class="button disabled" id="human_play" role="button" title="Step 1 move back" alt="Step 1 move back">
+            Solve yourself
+        </div>
+    </div>
+    <div id="board_controls" class="hidden">
+        <div class="button" id="stepbackward" role="button" title="Step 1 move back" alt="Step 1 move back">
             &#8592;
         </div>
-        <div class="button sx" id="play" role="button" role="button" title="Play AI moves" alt="Play AI moves">
+        <div class="button" id="play" role="button" role="button" title="Play AI moves" alt="Play AI moves">
             &#9654;
         </div>
-        <div class="button sx hidden" id="pause" role="button" role="button" title="Play AI moves" alt="Play AI moves">
+        <div class="button height_0" id="pause" role="button" role="button" title="Play AI moves" alt="Play AI moves">
             &#10074; &#10074;
         </div>
-        <div class="button sx" id="stepforward" role="button" title="Step 1 move forward" alt="Step 1 move forward">
+        <div class="button" id="stepforward" role="button" title="Step 1 move forward" alt="Step 1 move forward">
             &#8594;
         </div>
         <div class="clear"></div>
@@ -129,7 +135,10 @@
         here! 
     </a>(Github repo)
 </div>
-
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="thegame.js" type="text/javascript"></script>
+<script src="js/ai.js" type="text/javascript"></script>
+<script src="js/gameui.js" type="text/javascript"></script>
 <script>
     var solution = [];
     var moves = [];
@@ -137,16 +146,12 @@
     var playInterval = null;
     var startNode = null;
 
+    var humanIsPlaying = true;
+    var aiIsPlaying = false;
+
     $(function () {
-        startNode = new Node();
-        prepareBoard(startNode);
-
-        solution = astar(startNode);
-
-        for (var i = 0; i < solution.length - 1; i++) {
-            moves.push(diffMoves(solution[i], solution[i + 1]));
-        }
-
+        init();
+        initAI();
     });
 
 </script>

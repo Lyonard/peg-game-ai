@@ -12,7 +12,7 @@ var astar = function (start) {
 
         //if the expanded node is an optimal solution, search is terminated.
         //Return the path
-        if (currentNode.nrOfNodes() == 1 && currentNode.board[3][3] == 1) {
+        if (currentNode.nrOfNodes() === 1 && currentNode.board[3][3] === 1) {
             var curr = currentNode;
             var ret = [];
 
@@ -72,8 +72,8 @@ var astar = function (start) {
                 insertionSortStep(openList, neighbor);
             }
         }
-        if (k % 100 == 0) console.log(k, openList.length, currentNode.g, currentNode.f());
+        if (k % 100 === 0) console.log(k, openList.length, currentNode.g, currentNode.f());
     }
     // No result was found -- empty array signifies failure to find path
     return [];
-}
+};

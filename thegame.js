@@ -6,14 +6,14 @@ Array.prototype.addToSet = function (elemArr) {
     var i = 0;
     var found = false;
     while (i < this.length && !found) {
-        if (this[i][0] == elemArr[0] && this[i][1] == elemArr[1]) found = true;
+        if (this[i][0] === elemArr[0] && this[i][1] === elemArr[1]) found = true;
         i++;
     }
     if (!found) this.push(elemArr);
 }
 
 var Node = function (board, g) {
-    if (board == null) {
+    if (typeof board === 'undefined') {
         board = [
             [2, 2, 1, 1, 1, 2, 2],
             [2, 2, 1, 1, 1, 2, 2],
@@ -25,7 +25,7 @@ var Node = function (board, g) {
         ];
     }
 
-    if (g == null) g = 0;
+    if (typeof g === 'undefined') g = 0;
 
     this.board = board;
     this.g = g;
@@ -36,12 +36,12 @@ var Node = function (board, g) {
 
 //a piece is isolated iff the 8 nearby cells are empty or walls
 Node.prototype.roundedBy = function (x, y, pieceType) {
-    if (pieceType == null) pieceType = 0;
+    if (typeof pieceType === 'undefined') pieceType = 0;
 
-    return typeof this.board[x + 1] != 'undefined' && typeof this.board[x + 1][y] != 'undefined' && this.board[x + 1][y] == pieceType &&
-        typeof this.board[x - 1] != 'undefined' && typeof this.board[x - 1][y] != 'undefined' && this.board[x - 1][y] == pieceType &&
-        typeof this.board[x] != 'undefined' && typeof this.board[x][y + 1] != 'undefined' && this.board[x][y + 1] == pieceType &&
-        typeof this.board[x] != 'undefined' && typeof this.board[x][y - 1] != 'undefined' && this.board[x][y - 1] == pieceType;
+    return typeof this.board[x + 1] !== 'undefined' && typeof this.board[x + 1][y] !== 'undefined' && this.board[x + 1][y] === pieceType &&
+        typeof this.board[x - 1] !== 'undefined' && typeof this.board[x - 1][y] !== 'undefined' && this.board[x - 1][y] === pieceType &&
+        typeof this.board[x] !== 'undefined' && typeof this.board[x][y + 1] !== 'undefined' && this.board[x][y + 1] === pieceType &&
+        typeof this.board[x] !== 'undefined' && typeof this.board[x][y - 1] !== 'undefined' && this.board[x][y - 1] === pieceType;
 };
 
 Node.prototype.isolatedPeg = function (x, y) {
@@ -56,18 +56,18 @@ Node.prototype.isolatedSpace = function (x, y) {
 };
 
 Node.prototype.isFronteer = function (x, y) {
-    return this.board[x][y] == 1 &&
+    return this.board[x][y] === 1 &&
         (
-            typeof this.board[x - 1] == 'undefined' ||
-                typeof this.board[x + 1] == 'undefined' ||
-                typeof this.board[x - 1][y] == 'undefined' ||
-                typeof this.board[x + 1][y] == 'undefined' ||
-                typeof this.board[x][y + 1] == 'undefined' ||
-                typeof this.board[x][y - 1] == 'undefined' ||
-                this.board[x - 1][y] != 1 ||
-                this.board[x + 1][y] != 1 ||
-                this.board[x][y + 1] != 1 ||
-                this.board[x][y - 1] != 1
+            typeof this.board[x - 1] === 'undefined' ||
+                typeof this.board[x + 1] === 'undefined' ||
+                typeof this.board[x - 1][y] === 'undefined' ||
+                typeof this.board[x + 1][y] === 'undefined' ||
+                typeof this.board[x][y + 1] === 'undefined' ||
+                typeof this.board[x][y - 1] === 'undefined' ||
+                this.board[x - 1][y] !== 1 ||
+                this.board[x + 1][y] !== 1 ||
+                this.board[x][y + 1] !== 1 ||
+                this.board[x][y - 1] !== 1
             );
 
 };
@@ -77,12 +77,12 @@ Node.prototype.getPerimeter = function () {
     var perimeterSet = [];
     for (var i = 0; i < this.board.length; i++) {
         for (var j = 0; j < this.board.length; j++) {
-            if (this.board[i][j] == 1) {
+            if (this.board[i][j] === 1) {
                 for (var xx = i - 1; xx <= i + 1; xx++) {
                     for (var yy = j - 1; yy <= j + 1; yy++) {
-                        if (typeof this.board[xx] == 'undefined' ||
-                            typeof this.board[xx][yy] == 'undefined' ||
-                            this.board[xx][yy] != 1) perimeterSet.addToSet([xx, yy]);
+                        if (typeof this.board[xx] === 'undefined' ||
+                            typeof this.board[xx][yy] === 'undefined' ||
+                            this.board[xx][yy] !== 1) perimeterSet.addToSet([xx, yy]);
                     }
                 }
             }
@@ -97,7 +97,7 @@ Node.prototype.nrOfNodes = function () {
 
     for (var i = 0; i < this.board.length; i++) {
         for (var j = 0; j < this.board.length; j++) {
-            if (this.board[i][j] == 1)
+            if (this.board[i][j] === 1)
                 configurationWeight++;
         }
     }
@@ -111,15 +111,15 @@ Node.prototype.heuristic = function () {
 
     for (var i = 0; i < this.board.length; i++) {
         for (var j = 0; j < this.board.length; j++) {
-            if (this.board[i][j] == 1)
+            if (this.board[i][j] === 1)
                 nrOfNodes++;
 
-            //if (this.board[i][j] == 1 && this.isFronteer(i, j))
+            //if (this.board[i][j] === 1 && this.isFronteer(i, j))
             //    fronteerSize++;
 
-            if (this.board[i][j] == 1 && this.isolatedPeg(i, j))
+            if (this.board[i][j] === 1 && this.isolatedPeg(i, j))
                 nrIsolatedNodes++;
-            else if (this.board[i][j] == 0 && this.isolatedSpace(i, j))
+            else if (this.board[i][j] === 0 && this.isolatedSpace(i, j))
                 nrIsolatedNodes++
         }
     }
@@ -142,19 +142,19 @@ Node.prototype.getNeighbors = function (board) {
     for (var i = 0; i < this.board.length; i++) {
         for (var j = 0; j < this.board.length; j++) {
 
-            if (this.moveUp(i, j) != null) {
+            if (this.moveUp(i, j) !== null) {
                 result.push(this.moveUp(i, j));
             }
 
-            if (this.moveDown(i, j) != null) {
+            if (this.moveDown(i, j) !== null) {
                 result.push(this.moveDown(i, j));
             }
 
-            if (this.moveLeft(i, j) != null) {
+            if (this.moveLeft(i, j) !== null) {
                 result.push(this.moveLeft(i, j));
             }
 
-            if (this.moveRight(i, j) != null) {
+            if (this.moveRight(i, j) !== null) {
                 result.push(this.moveRight(i, j));
             }
         }
@@ -170,13 +170,13 @@ Node.prototype.moveUp = function (x, y) {
     if (x < 2) return null;
 
     //not a piece
-    if (this.board[x][y] != 1) return null;
+    if (this.board[x][y] !== 1) return null;
 
     //there's not a jumpable piece
-    if (this.board[x - 1][y] != 1) return null;
+    if (this.board[x - 1][y] !== 1) return null;
 
     //there's no space to land
-    if (this.board[x - 2][y] != 0) return null;
+    if (this.board[x - 2][y] !== 0) return null;
 
     var copyBoard = this.board.clone();
 
@@ -199,13 +199,13 @@ Node.prototype.moveDown = function (x, y) {
     if (x > 4) return null;
 
     //not a piece
-    if (this.board[x][y] != 1) return null;
+    if (this.board[x][y] !== 1) return null;
 
     //there's not a jumpable piece
-    if (this.board[x + 1][y] != 1) return null;
+    if (this.board[x + 1][y] !== 1) return null;
 
     //there's no space to land
-    if (this.board[x + 2][y] != 0) return null;
+    if (this.board[x + 2][y] !== 0) return null;
 
     var copyBoard = this.board.clone();
 
@@ -228,13 +228,13 @@ Node.prototype.moveLeft = function (x, y) {
     if (y < 2) return null;
 
     //not a piece
-    if (this.board[x][y] != 1) return null;
+    if (this.board[x][y] !== 1) return null;
 
     //there's not a jumpable piece
-    if (this.board[x][y - 1] != 1) return null;
+    if (this.board[x][y - 1] !== 1) return null;
 
     //there's no space to land
-    if (this.board[x][y - 2] != 0) return null;
+    if (this.board[x][y - 2] !== 0) return null;
 
     var copyBoard = this.board.clone();
 
@@ -257,13 +257,13 @@ Node.prototype.moveRight = function (x, y) {
     if (y > 4) return null;
 
     //not a piece
-    if (this.board[x][y] != 1) return null;
+    if (this.board[x][y] !== 1) return null;
 
     //there's not a jumpable piece
-    if (this.board[x][y + 1] != 1) return null;
+    if (this.board[x][y + 1] !== 1) return null;
 
     //there's no space to land
-    if (this.board[x][y + 2] != 0) return null;
+    if (this.board[x][y + 2] !== 0) return null;
 
     var copyBoard = this.board.clone();
 
@@ -283,7 +283,7 @@ Node.prototype.equals = function (node) {
     var equals = true;
     for (var i = this.board.length - 1; i >= 0; i--) {
         for (var j = this.board.length - 1; j >= 0; j--) {
-            if (this.board[i][j] != node.board[i][j]) {
+            if (this.board[i][j] !== node.board[i][j]) {
                 equals = false;
                 break;
             }
@@ -298,7 +298,7 @@ Node.prototype.mirrorX = function (node) {
 
     for (var i = maxX; i >= 0; i--) {
         for (var j = maxX; j >= 0; j--) {
-            if (this.board[i][j] != node.board[ maxX - i][j]) return false;
+            if (this.board[i][j] !== node.board[ maxX - i][j]) return false;
         }
 
     }
@@ -310,7 +310,7 @@ Node.prototype.mirrorY = function (node) {
     var maxY = this.board.length - 1;
     for (var i = maxY; i >= 0; i--) {
         for (var j = maxY; j >= 0; j--) {
-            if (this.board[i][j] != node.board[i][maxY - j]) return false;
+            if (this.board[i][j] !== node.board[i][maxY - j]) return false;
         }
     }
 
@@ -321,7 +321,7 @@ Node.prototype.clockwiseRot = function (node) {
     var maxX = this.board.length - 1;
     for (var i = 0, k = maxX; i < maxX + 1; i++) {
         for (var j = 0; j < maxX + 1; j++) {
-            if (this.board[i][j] != node.board[j][k]) return false;
+            if (this.board[i][j] !== node.board[j][k]) return false;
         }
         k--;
     }
@@ -332,7 +332,7 @@ Node.prototype.counterclockwiseRot = function (node) {
     var maxX = this.board.length - 1;
     for (var i = 0, k = 0; i < maxX + 1; i++) {
         for (var j = 0; j < maxX + 1; j++) {
-            if (this.board[i][j] != node.board[maxX - j][k]) return false;
+            if (this.board[i][j] !== node.board[maxX - j][k]) return false;
         }
         k++;
     }
@@ -357,4 +357,4 @@ var insertionSortStep = function (list, elem) {
     while (idx < list.length && list[idx].f() < elemF) idx++;
     list.splice(idx, 0, elem);
     return list;
-}
+};
